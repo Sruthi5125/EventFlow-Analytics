@@ -6,11 +6,10 @@ const authMiddleware = require('../middleware/auth');
 router.use(authMiddleware);
 
 // IMPORTANT: Put specific routes BEFORE dynamic routes
+
+// Specific routes come FIRST
 router.post('/', eventController.createEvent);
 router.get('/', eventController.getAllEvents);
-
-// These specific routes must come BEFORE /:id
-// (None in this case, but keep this pattern in mind)
 
 // Dynamic routes come LAST
 router.get('/:id', eventController.getEventById);
